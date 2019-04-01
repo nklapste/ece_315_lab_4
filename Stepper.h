@@ -3,6 +3,8 @@
  *
  *  Created on: Nov 1, 2016
  *      Author: nem
+ *  Modified on: Mar 13, 2019
+ *  	Author: Nathan Klapstein
  */
 
 #ifndef STEPPER_H_
@@ -19,8 +21,8 @@
 #define STEPS_PER_ROTATION_FULL_STEP_MODE 100
 #define STEPS_PER_ROTATION_HALF_STEP_MODE 200
 
-#define CLOCKWISE 0
-#define COUNTER_CLOCKWISE 1
+#define CLOCKWISE 1 // original 0
+#define COUNTER_CLOCKWISE 0 // original 1
 
 #define STEPPER_ENABLE  J2[37]
 #define STEPPER_MODE 	J2[38]
@@ -32,7 +34,6 @@ class Stepper {
 public:
 	Stepper();
 	virtual ~Stepper();
-
 
 	void Step(BYTE direction, WORD steps);
 
@@ -55,7 +56,6 @@ private:
 	BYTE state; 		// running or stopped
 	BYTE motor_mode;	// half or full
 	BYTE direction; 	// CW or CCW
-
 };
 
 #endif /* STEPPER_H_ */
